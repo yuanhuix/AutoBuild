@@ -1,0 +1,13 @@
+
+            ListBox ltb = (ListBox)sender;
+            if (e.Button == MouseButtons.Right)
+            {
+                int posindex = ltb.IndexFromPoint(new Point(e.X,e.Y));
+                ltb.ContextMenuStrip = null;
+                if(posindex>=0&&posindex<ltb.Items.Count)
+                {
+                    ltb.SelectedIndex=posindex;
+                    ContextMenuStrip.Show(ltb,new Point(e.X,e.Y));
+                }
+            }
+            ltb.Refresh();
